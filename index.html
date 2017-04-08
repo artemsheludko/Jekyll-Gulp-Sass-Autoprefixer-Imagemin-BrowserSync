@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+{% for post in site.posts %}
+<article class="article-post">
+  <div class="wrap-content">
+    <header class="header-post">
+      <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
+      <div class="post-date"><span>{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+    </header>
+    {% if post.img %}
+       <img class="post-img" src={{ "/assets/img/" | prepend: site.baseurl | append: post.img }} alt="{{post.title}}">
+    {% endif %}
+    <p>{{post.description}} <a class="more" href="{{post.url | prepend: site.baseurl}}">(Read more...)</a></p>
+  </div>
+</article>
+{% endfor %}
